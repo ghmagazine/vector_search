@@ -1,7 +1,7 @@
 # 第1章から使用
 pandas
 pyarrow
-fastparquet
+# fastparquet  # 1.0.1: 不要と思われる `fastparquet` 依存を削除しました。
 
 # 第2章から使用
 transformers

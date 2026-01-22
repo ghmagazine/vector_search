@@ -184,6 +184,7 @@ class OpenSearchTester:
                     f"{self.index_name}-took-hits.parquet",
                 ),
                 index=False,
+                engine="pyarrow",  # 1.0.1: .parquet ファイルを扱う際、engine を明示しました。
             )
 
         # 実際に多数のクエリを処理する（非同期）

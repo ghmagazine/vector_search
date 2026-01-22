@@ -17,6 +17,25 @@
 
 ## リリースノート
 
+### 1.0.1
+
+- `.parquet` ファイルを扱う際、`engine` を明示しました。
+    - これにより、`pyarrow` がインストールされていない場合に
+    `code/ch01_data_preparation.py` の上げる例外が分かりやすくなると期待されます。
+        - 1.0.0の例：
+            ```
+            File "/code/ch01_data_preparation.py", line 80, in assert_counts
+                assert (query_count, row_count) == (10407, 297883)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            AssertionError
+            ```
+        - 1.0.1の例：
+            ```
+            ImportError: Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+            ```
+- 関連して、不要と思われる `fastparquet` 依存を削除しました。
+
+
 ### 1.0.0
 
 - 出版時の状態

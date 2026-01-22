@@ -32,6 +32,7 @@ def read_jp_data(sample_rate=1.0, split=None, read_product_detail=False):
             examples_path,
             columns=["query_id"],
             filters=example_filters,
+            engine="pyarrow",  # 1.0.1: .parquet ファイルを扱う際、engine を明示しました。
         )["query_id"]
         query_ids = set(query_ids)
 
@@ -58,11 +59,13 @@ def read_jp_data(sample_rate=1.0, split=None, read_product_detail=False):
             examples_path,
             columns=["query", "query_id", "product_id", "esci_label", "split"],
             filters=example_filters,
+            engine="pyarrow",  # 1.0.1: .parquet ファイルを扱う際、engine を明示しました。
         ),
         pd.read_parquet(
             products_path,
             columns=product_columns_to_read,
             filters=[("product_locale", "==", "jp")],
+            engine="pyarrow",  # 1.0.1: .parquet ファイルを扱う際、engine を明示しました。
         ),
         on="product_id",
     )

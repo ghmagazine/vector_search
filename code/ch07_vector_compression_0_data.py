@@ -13,14 +13,21 @@ TUNED_VECTORIZED_PARQUET_PATH = os.path.join(
 
 # ベクトル化したデータを保存する関数
 def write_tuned_vectorized_data(data):
-    data.to_parquet(TUNED_VECTORIZED_PARQUET_PATH, index=False)
+    data.to_parquet(
+        TUNED_VECTORIZED_PARQUET_PATH,
+        index=False,
+        engine="pyarrow",  # 1.0.1: .parquet ファイルを扱う際、engine を明示しました。
+    )
 
 
 # ベクトル化したデータを読み込む関数
 def read_tuned_vectorized_data():
     # ファイルが存在すれば読み込む
     if os.path.isfile(TUNED_VECTORIZED_PARQUET_PATH):
-        return pd.read_parquet(TUNED_VECTORIZED_PARQUET_PATH)
+        return pd.read_parquet(
+            TUNED_VECTORIZED_PARQUET_PATH,
+            engine="pyarrow",  # 1.0.1: .parquet ファイルを扱う際、engine を明示しました。
+        )
 
     # 存在しなければ例外をあげる
     raise ValueError("事前にベクトル化したデータがありません（第7章を参照）")
