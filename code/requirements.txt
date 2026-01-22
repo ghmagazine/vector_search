@@ -21,3 +21,6 @@ accelerate
 
 # 第11章から使用
 xgboost
+
+# 付録Aで使用
+pillow  # 1.0.1: `pillow` 依存を明示しました。
