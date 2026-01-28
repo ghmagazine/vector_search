@@ -4,7 +4,7 @@ pyarrow
 # fastparquet  # 1.0.1: 不要と思われる `fastparquet` 依存を削除しました。
 
 # 第2章から使用
-transformers
+transformers < 5  # 1.0.2: 依存する `transformers` のバージョンを5未満に固定しました。
 sentence-transformers
 hf_xet
 
