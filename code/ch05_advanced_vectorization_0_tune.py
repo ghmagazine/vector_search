@@ -17,7 +17,7 @@ def get_sentence_transformer():
         tokenizer_args={
             # 独自のPythonコードを実行する許可を与える。特定のリビジョンに絞る
             "trust_remote_code": True,
-            "revision": "73d6f79438b9bfc325b27ddc6cfc637395e1408b",
+            "revision": "c32d05753d0d4be0f60482291a9452ec7e6f7d68",  # 1.1.0: LINEのDistilBERTを更新しました。
         },
     )
 
