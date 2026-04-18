@@ -17,6 +17,11 @@
 
 ## リリースノート
 
+### 1.1.1
+
+- `sentence-transformers` のバージョンによっては `SentenceTransformer#encode` に `pandas.Series` を渡すと例外が上がる問題に対応しました。
+
+
 ### 1.1.0
 
 - `transformers` 5以上に対応しました。
