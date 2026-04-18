@@ -86,7 +86,8 @@ def evaluate(model, data):
     # クエリとドキュメントをベクトル化する
     vectorize = vectorize_texts_or_images_with(model=model)
     query_vectors = vectorize(IMAGE_LABEL_TO_QUERY)
-    data["image_vector"] = vectorize(data["image"])
+    # 1.1.1: `sentence-transformers` のバージョンによっては `pandas.Series` を渡すと例外が上がる
+    data["image_vector"] = vectorize(data["image"].to_list())
 
     # 適合率のクエリ間平均を計算し表示する
     precisions = [
